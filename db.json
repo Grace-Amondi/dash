@@ -1,0 +1,1790 @@
+{
+  "datasets": [
+    {
+      "id": "1",
+      "name": "Drought",
+      "icon": "white-balance-sunny",
+      "content": "Drought Risk including the <span style='color:#f6ca0a'/>Combined Drought Indicator</span> based on <span style='color:#67c9fb'>SPI</span>, <span style='color:#b35807'>Soil Moisture Anomaly</span> and <span style='color:#4caf5b'>fAPAR Anomly</span>. Identify areas with potential to suffer <b> agricultural and meteorological drought</b> and areas where the vegetation is already affected by drought.",
+      "layers": [
+        {
+          "id": "13",
+          "name": "Combined Drought Indicator",
+          "description": "The Combined Drought Indicator is based on SPI, Soil moisture and fAPAR, to identify areas with potential to suffer agricultural drought, areas where the vegetation is already affected by drought conditions, and areas in recovery process to normal conditions after a drought episode",
+          "slug": "cdi_chirps",
+          "staticMapSlug":"cdi_home",
+          "visible": true,
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=cdi_home&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&STYLES=&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}&SELECTED_TENDAYS={selectedTenDays}"
+            ],
+            "minzoom": 2,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "legendConfig": {
+            "title": "Combined Drought Indicator",
+            "type": "basic",
+            "items": [
+              {
+                "name": "Watch: Rainfall Deficit",
+                "color": "#ffff01",
+                "min_value": "1.00",
+                "max_value": "3.00"
+              },
+              {
+                "name": "Warning: Soil Moisture Deficit",
+                "color": "#ffa601",
+                "min_value": "4.00",
+                "max_value": "6.00"
+              },
+              {
+                "name": "Alert: Vegetation stress following rainfall/ soil moisture deficit",
+                "color": "#ff0000",
+                "min_value": "7.00",
+                "max_value": "10.00"
+              },
+              {
+                "name": "No Drought Conditions",
+                "color": "#f5f5f5",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              }
+            ]
+          },
+          "analysisConfig": {
+            "pieChart": true,
+            "barChart": true,
+            "dimensions": ["date", "alert", "warning", "watch"],
+            "data": ["Alert", "Warning", "Watch"],
+            "color": ["#ff0000", "#ffa601", "#ffff01"],
+            "barRange":[2021, 2022]
+          },
+          "wmsConfig": {
+            "getFeatureInfoEnabled": true,
+            "url": "https://droughtwatch.icpac.net/mapserver/cgi-bin/mapserv",
+            "params": {
+              "SELECTED_YEAR": "selectedYear",
+              "SELECTED_MONTH": "selectedMonth",
+              "SELECTED_TENDAYS": "selectedTenDays",
+              "LAYERS": "cdi_chirps",
+              "QUERY_LAYERS": "cdi_chirps",
+              "MAP": "/var/www/mapfiles/mukau/mukau.map"
+            },
+            "output": [
+              {
+                "column": "current_cdi",
+                "property": "Value",
+                "units": null
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "04",
+            "selectedTenDays": "11"
+          },
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            },
+            {
+              "key": "selectedTenDays",
+              "required": true,
+              "sentence": "Dekad {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "1st",
+                  "value": "01"
+                },
+                {
+                  "label": "2nd",
+                  "value": "11"
+                },
+                {
+                  "label": "3rd",
+                  "value": "21"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Vegetation",
+      "icon": "tree",
+      "content": "Keep track of <span style='color:#4caf5b'>vegetation photosyntetic activity</span> and it's relation to agricultural drought using fAPAR and fAPAR Anomaly layers",
+      "layers": [
+        {
+          "id": "197",
+          "name": "FAPAR Anomaly (Photosynthetic activity)",
+          "visible": false,
+          "description": "The Fraction of Absorbed Photosynthetically Active Radiation (FAPAR) is biophysical variable, derived from satellite observations, that represents the fraction of incident solar radiation that is absorbed by land vegetation for photosynthesis.",
+          "slug": "fapar_anomaly",
+          "staticMapSlug":"fapar_anomaly",
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=fapar_anomaly&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&STYLES=&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}&SELECTED_TENDAYS={selectedTenDays}"
+            ],
+            "minzoom": 3,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "analysisConfig": {
+            "barRange":[2021, 2022],
+            "pieChart": false,
+            "barChart": true,
+            "dimensions": [
+              "date",
+              "extremely_low",
+              "severely_low",
+              "moderately_low",
+              "near_normal",
+              "moderately_high",
+              "very_high",
+              "extremely_high",
+              "no_data"
+            ],
+            "data": [
+              "Extremely Low",
+              "Severely Low",
+              "Moderately Low",
+              "Near Normal",
+              "Moderately High",
+              "Very High",
+              "Extremely High",
+              "No Data"
+            ],
+            "color": [
+              "#D73062",
+              "#FC8D95",
+              "#FEE0C7",
+              "#f5f5f5",
+              "#AFED51",
+              "#4BA600",
+              "#116E00",
+              "#c1c1c1"
+            ]
+          },
+          "legendConfig": {
+            "title": "fAPAR Anomaly (Photosynthetic activity)",
+            "type": "basic",
+            "items": [
+              {
+                "name": "≤ -2 (Extremely low)",
+                "color": "#d73063",
+                "min_value": "-10.00",
+                "max_value": "-2.00"
+              },
+              {
+                "name": "-2 - -1.5 (Severely low)",
+                "color": "#fc8d95",
+                "min_value": "-2.00",
+                "max_value": "-1.50"
+              },
+              {
+                "name": "-1.5 - -1 (Moderately low)",
+                "color": "#fee0c7",
+                "min_value": "-1.50",
+                "max_value": "-1.00"
+              },
+              {
+                "name": "-1 - +1 (Near Normal Conditions)",
+                "color": "#FFFFFF",
+                "min_value": "-1.00",
+                "max_value": "1.00"
+              },
+              {
+                "name": "1 - 1.5 (Moderately high)",
+                "color": "#afed51",
+                "min_value": "1.00",
+                "max_value": "1.50"
+              },
+              {
+                "name": "1.5 - 1 (Very high)",
+                "color": "#4ba600",
+                "min_value": "1.50",
+                "max_value": "1.00"
+              },
+              {
+                "name": "≥ 2 (Extremely high)",
+                "color": "#116e00",
+                "min_value": "2.00",
+                "max_value": "10.00"
+              },
+              {
+                "name": "No Data",
+                "color": "#C1C1C1",
+                "min_value": "-99.00",
+                "max_value": "-99.00"
+              }
+            ]
+          },
+          "wmsConfig": {
+            "getFeatureInfoEnabled": true,
+            "url": "https://droughtwatch.icpac.net/mapserver/cgi-bin/mapserv",
+            "params": {
+              "SELECTED_YEAR": "selectedYear",
+              "SELECTED_MONTH": "selectedMonth",
+              "SELECTED_TENDAYS": "selectedTenDays",
+              "LAYERS": "fapar_anomaly",
+              "QUERY_LAYERS": "fapar_anomaly",
+              "MAP": "/var/www/mapfiles/mukau/mukau.map"
+            },
+            "output": [
+              {
+                "column": "current_fapar_anomaly",
+                "property": "Value",
+                "units": null
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "04",
+            "selectedTenDays": "11"
+          },
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            },
+            {
+              "key": "selectedTenDays",
+              "required": true,
+              "sentence": "Dekad {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "1st",
+                  "value": "01"
+                },
+                {
+                  "label": "2nd",
+                  "value": "11"
+                },
+                {
+                  "label": "3rd",
+                  "value": "21"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 286,
+          "name": "fAPAR Absorbed (Photosynthetic Activity)",
+          "description": "The fAPAR Anomaly is used in Detecting and monitoring the impacts of agricultural drought on the growth and productivity of vegetation",
+          "visible": false,
+          "slug": "fapar_absorbed",
+          "staticMapSlug":"fapar_observed",
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=fapar_observed&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}&SELECTED_TENDAYS={selectedTenDays}"
+            ],
+            "minzoom": 2,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "analysisConfig": {
+            "barRange":[2021, 2022],
+            "pieChart": false,
+            "barChart": false,
+            "dimensions": [
+              "date",
+              "extremely_low",
+              "severely_low",
+              "moderately_low",
+              "near_normal",
+              "moderately_high",
+              "very_high",
+              "extremely_high",
+              "no_data"
+            ],
+            "data": [
+              "Extremely Low",
+              "Severely Low",
+              "Moderately Low",
+              "Near Normal",
+              "Moderately High",
+              "Very High",
+              "Extremely High",
+              "No Data"
+            ],
+            "color": [
+              "#D73062",
+              "#FC8D95",
+              "#FEE0C7",
+              "#f5f5f5",
+              "#AFED51",
+              "#4BA600",
+              "#116E00",
+              "#c1c1c1"
+            ]
+          },
+          "wmsConfig": {
+            "getFeatureInfoEnabled": true,
+            "url": "https://droughtwatch.icpac.net/mapserver/cgi-bin/mapserv",
+            "params": {
+              "SELECTED_YEAR": "selectedYear",
+              "SELECTED_MONTH": "selectedMonth",
+              "SELECTED_TENDAYS": "selectedTenDays",
+              "LAYERS": "fapar_observed",
+              "QUERY_LAYERS": "fapar_observed",
+              "MAP": "/var/www/mapfiles/mukau/mukau.map"
+            },
+            "output": [
+              {
+                "column": "current_fapar_observed",
+                "property": "Value",
+                "units": null
+              }
+            ]
+          },
+         
+          "legendConfig": {
+            "title": "fAPAR Absorbed (Photosynthetic Activity)",
+            "type": "gradient",
+            "items": [
+              {
+                "name": "0",
+                "color": "#fdfebe",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "100",
+                "color": "#038403",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "04",
+            "selectedTenDays": "11"
+          },
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            },
+            {
+              "key": "selectedTenDays",
+              "required": true,
+              "sentence": "Dekad {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "1st",
+                  "value": "01"
+                },
+                {
+                  "label": "2nd",
+                  "value": "11"
+                },
+                {
+                  "label": "3rd",
+                  "value": "21"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Soil Moisture",
+      "icon": "waves-arrow-up",
+      "content": "Using <span style='color:#b35807'> Soil Moisture Anomaly data </span>, determine the <b>start</b> and <b>duration</b> of agricultural drought conditions arising from soil moisture availablity to plants dropping to a level that it adversely affects crop yeild.",
+      "layers": [
+        {
+          "id": "256",
+          "name": "Soil Moisture Anomaly",
+          "visible": false,
+          "slug": "sma",
+          "staticMapSlug":"sma_01dd",
+          "description": "The Soil Moisture Anomaly is used in determining the start and duration of agricultural drought conditions, which arise when soil moisture availability to plants drops to such a level that it adversely affects crop yield, and hence, agricultural production.",
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=sma_01dd&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}&SELECTED_TENDAYS={selectedTenDays}"
+            ],
+            "minzoom": 2,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "analysisConfig": {
+            "barRange":[2021, 2022],
+            "pieChart": false,
+            "barChart": true,
+            "dimensions": [
+              "date",
+              "extremely_dry",
+              "severely_dry",
+              "moderately_dry",
+              "near_normal",
+              "moderately_wet",
+              "very_wet",
+              "extremely_wet",
+              "no_data"
+            ],
+            "data": [
+              "Extremely Dry",
+              "Severely Dry",
+              "Moderately Dry",
+              "Near Normal",
+              "Moderately Wet",
+              "Very Wet",
+              "Extremely Wet",
+              "No Data"
+            ],
+            "color": [
+              "#B35707",
+              "#F1A440",
+              "#FEE0B6",
+              "#f5f5f5",
+              "#D2E4F0",
+              "#67A8CE",
+              "#2066AC",
+              "#c1c1c1"
+            ]
+          },
+          "legendConfig": {
+            "title": "Soil Moisture Anomaly",
+            "type": "basic",
+            "items": [
+              {
+                "name": "≥ -2 (Extremely dry)",
+                "color": "#b35707",
+                "min_value": "-10.00",
+                "max_value": "-2.00"
+              },
+              {
+                "name": "-2 - -1.5 (Severely dry)",
+                "color": "#f1a440",
+                "min_value": "-2.00",
+                "max_value": "-1.50"
+              },
+              {
+                "name": "-1.5 - -1 (Moderately dry)",
+                "color": "#fee0b6",
+                "min_value": "-1.50",
+                "max_value": "-1.00"
+              },
+              {
+                "name": "-1 - +1 (Near Normal Conditions)",
+                "color": "#FFFFFF",
+                "min_value": "-1.00",
+                "max_value": "1.00"
+              },
+              {
+                "name": "1 - 1.5 (Moderately wet)",
+                "color": "#d2e4f0",
+                "min_value": "1.00",
+                "max_value": "1.50"
+              },
+              {
+                "name": "1.5 - 2 (Very wet)",
+                "color": "#67a8ce",
+                "min_value": "1.50",
+                "max_value": "2.00"
+              },
+              {
+                "name": "≥ 2 (Extremely wet)",
+                "color": "#2066ac",
+                "min_value": "2.00",
+                "max_value": "10.00"
+              },
+              {
+                "name": "No Data",
+                "color": "#C1C1C1",
+                "min_value": "-99.00",
+                "max_value": "-99.00"
+              }
+            ]
+          },
+          "wmsConfig": {
+            "getFeatureInfoEnabled": true,
+            "url": "https://droughtwatch.icpac.net/mapserver/cgi-bin/mapserv",
+            "params": {
+              "SELECTED_YEAR": "selectedYear",
+              "SELECTED_MONTH": "selectedMonth",
+              "SELECTED_TENDAYS": "selectedTenDays",
+              "LAYERS": "sma_01dd",
+              "QUERY_LAYERS": "sma_01dd",
+              "MAP": "/var/www/mapfiles/mukau/mukau.map"
+            },
+            "output": [
+              {
+                "column": "current_sma",
+                "property": "Value",
+                "units": null
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "03",
+            "selectedTenDays": "21"
+          },
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            },
+            {
+              "key": "selectedTenDays",
+              "required": true,
+              "sentence": "Dekad {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "1st",
+                  "value": "01"
+                },
+                {
+                  "label": "2nd",
+                  "value": "11"
+                },
+                {
+                  "label": "3rd",
+                  "value": "21"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Rainfall",
+      "icon": "weather-pouring",
+      "content": "Monitor monthly precipitation and Standardized Precipitation Index comparing the total precipitation received at a particular location during a period of n months with the long-term precipitation distribution for the same period of time at that location (reference period is 1981-2010).",
+      "layers": [
+        {
+          "id": "296",
+          "name": "Monthly Precipitation CHIRPS",
+          "description": "This is the Monthly Precipitation",
+          "visible": false,
+          "slug": "ppt_gpcc",
+          "staticMapSlug":"monthly_ppt_chirps_date",
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=monthly_ppt_chirps_date&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&STYLES=&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}"
+            ],
+            "minzoom": 3,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "analysisConfig": {
+            "barRange":[2021, 2022],
+            "pieChart": false,
+            "barChart": false,
+            "dimensions": [
+              "date",
+              "extremely_dry",
+              "severely_dry",
+              "moderately_dry",
+              "near_normal",
+              "moderately_wet",
+              "very_wet",
+              "extremely_wet",
+              "no_data"
+            ],
+            "data": [
+              "Extremely Dry",
+              "Severely Dry",
+              "Moderately Dry",
+              "Near Normal",
+              "Moderately Wet",
+              "Very Wet",
+              "Extremely Wet",
+              "No Data"
+            ],
+            "color": [
+              "#ff001c",
+              "#ffa129",
+              "#ffff37",
+              "#f5f5f5",
+              "#e8c4f6",
+              "#ab45b8",
+              "#72006d",
+              "#c1c1c1"
+            ]
+          },
+          "wmsConfig": {
+            "getFeatureInfoEnabled": true,
+            "url": "https://droughtwatch.icpac.net/mapserver/cgi-bin/mapserv",
+            "params": {
+              "SELECTED_YEAR": "selectedYear",
+              "SELECTED_MONTH": "selectedMonth",
+              "LAYERS": "monthly_ppt_chirps_date",
+              "QUERY_LAYERS": "monthly_ppt_chirps_date",
+              "MAP": "/var/www/mapfiles/mukau/mukau.map"
+            },
+            "output": [
+              {
+                "column": "rainfall",
+                "property": "Value",
+                "units": "mm"
+              }
+            ]
+          },
+          "legendConfig": {
+            "title": "Monthly Precipitation CHIRPS",
+            "type": "choropleth",
+            "items": [
+              {
+                "name": "1",
+                "color": "#cbcbcb",
+                "min_value": "1.00",
+                "max_value": "10.00"
+              },
+              {
+                "name": "10",
+                "color": "#f4a904",
+                "min_value": "10.00",
+                "max_value": "50.00"
+              },
+              {
+                "name": "50",
+                "color": "#f9ff05",
+                "min_value": "50.00",
+                "max_value": "100.00"
+              },
+              {
+                "name": "100",
+                "color": "#abcd66",
+                "min_value": "100.00",
+                "max_value": "200.00"
+              },
+              {
+                "name": "200",
+                "color": "#aaff02",
+                "min_value": "200.00",
+                "max_value": "300.00"
+              },
+              {
+                "name": "300",
+                "color": "#4ce503",
+                "min_value": "300.00",
+                "max_value": "500.00"
+              },
+              {
+                "name": "500",
+                "color": "#70a801",
+                "min_value": "500.00",
+                "max_value": "1000.00"
+              },
+              {
+                "name": ">1000 mm",
+                "color": "#267300",
+                "min_value": "1000.00",
+                "max_value": "5000.00"
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}",
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "03"
+          },
+          
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "113",
+          "name": "Standardized Precipitation Index (SPI)",
+          "visible": false,
+          "slug": "spi_gpcc",
+          "staticMapSlug":"spi_chirps_dates",
+          "description": "The SPI is a statistical index comparing the total precipitation received at a particular location during a period of n months with the long-term precipitation distribution for the same period of time at that location (reference period is 1981-2010). Monthly accumulation periods (n) are 1, 3, 6, 9, 12, 24 or 48 months",
+          "layerConfig": {
+            "type": "raster",
+            "tiles": [
+              "https://droughtwatch.icpac.net/mapserver/mukau/php/gis/mswms.php?map=mukau_w_mf&LAYERS=spi_chirps_dates&FORMAT=image/png&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG:900913&BBOX={bbox-epsg-3857}&WIDTH=256&HEIGHT=256&STYLES=&SELECTED_YEAR={selectedYear}&SELECTED_MONTH={selectedMonth}&SELECTED_TIMESCALE={selectedTimeScale}"
+            ],
+            "minzoom": 3,
+            "maxzoom": 12,
+            "tileSize": 256
+          },
+          "analysisConfig": {
+            "pieChart": false,
+            "barChart": true,
+            "barRange":[2021, 2022],
+            "dimensions": [
+              "date",
+              "extremely_dry",
+              "severely_dry",
+              "moderately_dry",
+              "near_normal",
+              "moderately_wet",
+              "very_wet",
+              "extremely_wet",
+              "no_data"
+            ],
+            "data": [
+              "Extremely Dry",
+              "Severely Dry",
+              "Moderately Dry",
+              "Near Normal",
+              "Moderately Wet",
+              "Very Wet",
+              "Extremely Wet",
+              "No Data"
+            ],
+            "color": [
+              "#ff001c",
+              "#ffa129",
+              "#ffff37",
+              "#f5f5f5",
+              "#e8c4f6",
+              "#ab45b8",
+              "#72006d",
+              "#c1c1c1"
+            ]
+          },
+          "legendConfig": {
+            "title": "Standardized Precipitation Index (SPI) - CHIRPS",
+            "type": "basic",
+            "items": [
+              {
+                "name": "Extremely dry",
+                "color": "#c23f01",
+                "min_value": "-10.00",
+                "max_value": "-2.00"
+              },
+              {
+                "name": null,
+                "color": "#f27525",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Severely dry",
+                "color": "#eea801",
+                "min_value": "-2.00",
+                "max_value": "-1.50"
+              },
+              {
+                "name": null,
+                "color": "#fcca06",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Moderately dry",
+                "color": "#feec00",
+                "min_value": "-1.50",
+                "max_value": "-1.00"
+              },
+              {
+                "name": null,
+                "color": "#f7fab5",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Near Normal",
+                "color": "#e5e1d2",
+                "min_value": "-1.00",
+                "max_value": "1.00"
+              },
+              {
+                "name": null,
+                "color": "#c4eafb",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Moderately wet",
+                "color": "#67c9fb",
+                "min_value": "1.00",
+                "max_value": "1.50"
+              },
+              {
+                "name": null,
+                "color": "#0094dd",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Very wet",
+                "color": "#0767a6",
+                "min_value": "1.50",
+                "max_value": "2.00"
+              },
+              {
+                "name": null,
+                "color": "#c300e7",
+                "min_value": "0.00",
+                "max_value": "0.00"
+              },
+              {
+                "name": "Extremely wet",
+                "color": "#8b0187",
+                "min_value": "2.00",
+                "max_value": "10.00"
+              }
+            ]
+          },
+          "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Timescale: {selectedTimeScale}",
+
+          "params": {
+            "selectedYear": 2022,
+            "selectedMonth": "03",
+            "selectedTimeScale": "03"
+          },
+          "paramsSelectorConfig": [
+            {
+              "key": "selectedYear",
+              "required": true,
+              "sentence": "Year {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "2022",
+                  "value": 2022
+                },
+                {
+                  "label": "2021",
+                  "value": 2021
+                },
+                {
+                  "label": "2020",
+                  "value": 2020
+                },
+                {
+                  "label": "2019",
+                  "value": 2019
+                },
+                {
+                  "label": "2018",
+                  "value": 2018
+                },
+                {
+                  "label": "2017",
+                  "value": 2017
+                },
+                {
+                  "label": "2016",
+                  "value": 2016
+                },
+                {
+                  "label": "2015",
+                  "value": 2015
+                },
+                {
+                  "label": "2014",
+                  "value": 2014
+                },
+                {
+                  "label": "2013",
+                  "value": 2013
+                },
+                {
+                  "label": "2012",
+                  "value": 2012
+                },
+                {
+                  "label": "2011",
+                  "value": 2011
+                },
+                {
+                  "label": "2010",
+                  "value": 2010
+                },
+                {
+                  "label": "2009",
+                  "value": 2009
+                },
+                {
+                  "label": "2008",
+                  "value": 2008
+                },
+                {
+                  "label": "2007",
+                  "value": 2007
+                },
+                {
+                  "label": "2006",
+                  "value": 2006
+                },
+                {
+                  "label": "2005",
+                  "value": 2005
+                },
+                {
+                  "label": "2004",
+                  "value": 2004
+                },
+                {
+                  "label": "2003",
+                  "value": 2003
+                },
+                {
+                  "label": "2002",
+                  "value": 2002
+                },
+                {
+                  "label": "2001",
+                  "value": 2001
+                },
+                {
+                  "label": "2000",
+                  "value": 2000
+                }
+              ]
+            },
+            {
+              "key": "selectedMonth",
+              "required": true,
+              "sentence": "Month {selector}",
+              "options": [
+                {
+                  "label": "Jan",
+                  "value": "01"
+                },
+                {
+                  "label": "Feb",
+                  "value": "02"
+                },
+                {
+                  "label": "Mar",
+                  "value": "03"
+                },
+                {
+                  "label": "Apr",
+                  "value": "04"
+                },
+                {
+                  "label": "May",
+                  "value": "05"
+                },
+                {
+                  "label": "June",
+                  "value": "06"
+                },
+                {
+                  "label": "July",
+                  "value": "07"
+                },
+                {
+                  "label": "Aug",
+                  "value": "08"
+                },
+                {
+                  "label": "Sep",
+                  "value": "09"
+                },
+                {
+                  "label": "Oct",
+                  "value": "10"
+                },
+                {
+                  "label": "Nov",
+                  "value": "11"
+                },
+                {
+                  "label": "Dec",
+                  "value": "12"
+                }
+              ]
+            },
+            {
+              "key": "selectedTimeScale",
+              "required": true,
+              "sentence": "TimeScale {selector}",
+              "type": "select",
+              "options": [
+                {
+                  "label": "01",
+                  "value": "01"
+                },
+                {
+                  "label": "03",
+                  "value": "03"
+                },
+                {
+                  "label": "06",
+                  "value": "06"
+                },
+                {
+                  "label": "09",
+                  "value": "09"
+                },
+                {
+                  "label": "12",
+                  "value": "12"
+                },
+                {
+                  "label": "24",
+                  "value": "24"
+                },
+                {
+                  "label": "48",
+                  "value": "48"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
