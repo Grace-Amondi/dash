@@ -82,7 +82,7 @@
           "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "04",
+            "selectedMonth": "06",
             "selectedTenDays": "11"
           },
           "paramsSelectorConfig": [
@@ -395,7 +395,7 @@
           "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "04",
+            "selectedMonth": "06",
             "selectedTenDays": "11"
           },
           "paramsSelectorConfig": [
@@ -665,7 +665,7 @@
           "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "04",
+            "selectedMonth": "06",
             "selectedTenDays": "11"
           },
           "paramsSelectorConfig": [
@@ -978,8 +978,8 @@
           "paramsSentenceTemplate": "{selectedYear} {selectedMonth}, Dekad: {selectedTenDays}",
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "03",
-            "selectedTenDays": "21"
+            "selectedMonth": "06",
+            "selectedTenDays": "11"
           },
           "paramsSelectorConfig": [
             {
@@ -1290,7 +1290,7 @@
           "paramsSentenceTemplate": "{selectedYear} {selectedMonth}",
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "03"
+            "selectedMonth": "05"
           },
           
           "paramsSelectorConfig": [
@@ -1587,7 +1587,7 @@
 
           "params": {
             "selectedYear": 2022,
-            "selectedMonth": "03",
+            "selectedMonth": "05",
             "selectedTimeScale": "03"
           },
           "paramsSelectorConfig": [
